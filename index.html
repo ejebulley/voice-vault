@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anonymous Complaint Submission</title>
+    <link rel="icon" href="./image.png">
+    <link rel="icon" href="./resize.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+
+        <div class="logo">
+            <!-- <img src="./logo1.png" alt="logo" > -->
+            <img src="./AA.png" alt="logo">
+            <p>VoiceVault</p>
+            <!-- <img src="./logo2.png" alt=""> -->
+        </div>
+
+        <div class="nav-bar">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact us</a></li>
+        </div>
+    </header>
+
+    <section>
+        <div class="container">
+            <img src="./image.png" alt="">
+            <h1>Anonymous Complaint Submission</h1>
+            <h3>How to use VoiceVault:</h3>
+            1. Click on the complaint box
+            <br>
+            2. Type your complaint
+            <br>
+            3. Click on Submit complaint
+
+
+            <form action="#" method="post" id="myForm">
+                <label for="complaint"> <b>Complaint:</b></label>
+                <textarea id="data" name="data" rows="7" placeholder="Please write your complaint here..."
+                    required>
+                </textarea>
+
+                <button type="submit">Submit Complaint</button>
+            </form>
+        </div>
+    </section>
+
+</body>
+
+
+<script>
+    document.getElementById("myForm").addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent the form from submitting normally
+
+        var formData = new FormData();
+        formData.append("data", document.getElementById("data").value);
+
+        fetch("https://script.google.com/macros/s/AKfycbzKPBzF106A9FmCrkQrsK-aupytXtRplHJW4Tz2zKpFlMkrLpWMS5imIjhf4YiO1ufbMQ/exec", {
+            method: "POST",
+            body: formData
+        })
+            .then(response => response.text())
+            .then(data => alert("Data submitted successfully!"))
+            .catch(error => alert("Error submitting data: " + error));
+    });
+</script>
+
+</html>
