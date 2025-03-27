@@ -42,8 +42,7 @@
 
             <form action="#" method="post" id="myForm">
                 <label for="complaint"> <b>Complaint:</b></label>
-                <textarea id="data" name="data" rows="7" placeholder="Please write your complaint here..."
-                    required>
+                <textarea id="data" name="data" rows="7" placeholder="Please write your complaint here..." required>
                 </textarea>
 
                 <button type="submit">Submit Complaint</button>
@@ -52,22 +51,25 @@
     </section>
 
 </body>
-
-
 <script>
     document.getElementById("myForm").addEventListener("submit", function (event) {
-        event.preventDefault(); // Prevent the form from submitting normally
+        event.preventDefault(); // Prevent normal form submission
 
+        // Create FormData object
         var formData = new FormData();
-        formData.append("data", document.getElementById("data").value);
+        formData.append("data", document.getElementById("data").value); // Get data value from form
 
-        fetch("https://script.google.com/macros/s/AKfycbzKPBzF106A9FmCrkQrsK-aupytXtRplHJW4Tz2zKpFlMkrLpWMS5imIjhf4YiO1ufbMQ/exec", {
+        // Replace with your web app URL
+        fetch("https://script.google.com/macros/s/AKfycbwEzDhERIhhjcep2iOiQQ3ZCVehIPEvWwJdJ2MMyzPEszj0mBucBiy8XMaaBxfPaioPxw/exec", {
             method: "POST",
             body: formData
         })
             .then(response => response.text())
-            .then(data => alert("Report submitted successfully!"))
-            .catch(error => alert("Error submitting data: " + error));
+            .then(responseText => {
+                alert(responseText); // Success message
+                document.getElementById("data").value = ''; // Clear the input field after submission
+            })
+            .catch(error => alert("Error: " + error)); // Handle errors
     });
 </script>
 

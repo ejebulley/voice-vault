@@ -40,23 +40,9 @@ a {
     text-decoration: none;
     list-style-type: none;
     gap: 50px;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: bold;
 }
-
-/* .nav-bar, li a {
-    color: black;
-} */
-
-
-/* body {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    background-color: #f4f4f9;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-} */
 
 section {
     background-color: #f4f4f9;
@@ -119,7 +105,3 @@ button:hover {
     color: black;
     background-color: #e0fd3d;
 }
-
-/* button:active {
-    background-color: #3e8e41;
-} */
