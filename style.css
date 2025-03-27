@@ -35,11 +35,11 @@ a {
     display: flex;
     align-items: center;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     color: white;
     text-decoration: none;
     list-style-type: none;
-    gap: 50px;
+    gap: 60px;
     font-size: 15px;
     font-weight: bold;
 }
